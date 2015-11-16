@@ -25,7 +25,7 @@
 <div class="underfooter_line">
 	<div class="underfooter_line_container">
 		<div class="about_section col-md-3 col-lg-3 col-sm-6">
-			<span class="bottom_title">О компании </span>
+			<span class="bottom_title">О компании</span>
 			<?$APPLICATION->IncludeComponent("bitrix:menu", "new_bottom_nemu", Array(
 				"COMPONENT_TEMPLATE" => "bottom_menu",
 					"ROOT_MENU_TYPE" => "about",	// Тип меню для первого уровня

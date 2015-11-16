@@ -24,7 +24,7 @@
 </div>
 <div class="underfooter_line">
 	<div class="underfooter_line_container">
-		<div class="about_section col-md-3 col-lg-3 col-sm-6">
+		<div class="about_section col-md-3 col-lg-3 col-sm-3 col-xs-12">
 			<span class="bottom_title">О компании</span>
 			<?$APPLICATION->IncludeComponent("bitrix:menu", "new_bottom_nemu", Array(
 				"COMPONENT_TEMPLATE" => "bottom_menu",
@@ -42,7 +42,7 @@
 				false
 			);?>
 		</div>
-		<div class="services_section col-md-3 col-lg-3 col-sm-6">
+		<div class="services_section col-md-3 col-lg-3 col-sm-3 col-xs-12">
 			<span class="bottom_title">Услуги</span>
 			<?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 
@@ -64,7 +64,7 @@
 	false
 );?>
 		</div>
-		<div class="topics_section col-md-3 col-lg-3 col-sm-6">
+		<div class="topics_section col-md-3 col-lg-3 col-sm-3 col-xs-12">
 			<span class="bottom_title">Статьи</span>
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:menu",
@@ -86,7 +86,7 @@
 				false
 			);?>
 		</div>
-		<div class="contacs_section col-md-3 col-lg-3 col-sm-6">
+		<div class="contacs_section col-md-3 col-lg-3 col-sm-3 col-xs-12">
 			<span class="bottom_title">Контакты</span>
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:main.include",

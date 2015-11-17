@@ -100,39 +100,6 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 				</div>
 			</div>
 
-			<?/*if ($curPage != SITE_DIR."index.php"):?>
-			<div class="row">
-				<div class="col-lg-12">
-					<?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
-							"NUM_CATEGORIES" => "1",
-							"TOP_COUNT" => "5",
-							"CHECK_DATES" => "N",
-							"SHOW_OTHERS" => "N",
-							"PAGE" => SITE_DIR."catalog/",
-							"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS") ,
-							"CATEGORY_0" => array(
-								0 => "iblock_catalog",
-							),
-							"CATEGORY_0_iblock_catalog" => array(
-								0 => "all",
-							),
-							"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
-							"SHOW_INPUT" => "Y",
-							"INPUT_ID" => "title-search-input",
-							"CONTAINER_ID" => "search",
-							"PRICE_CODE" => array(
-								0 => "BASE",
-							),
-							"SHOW_PREVIEW" => "Y",
-							"PREVIEW_WIDTH" => "75",
-							"PREVIEW_HEIGHT" => "75",
-							"CONVERT_CURRENCY" => "Y"
-						),
-						false
-					);?>
-				</div>
-			</div>
-			<?endif*/?>
 
 		</div>
 	</header>

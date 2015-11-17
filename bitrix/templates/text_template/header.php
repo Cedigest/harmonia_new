@@ -99,47 +99,6 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 );?>
 				</div>
 			</div>
-			<div id="bx_auth_popup_map" style="display:none;" class="bx_login_popup_form">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2241.2154428352846!2d37.494740166103476!3d55.82421974394881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54822d4d18479%3A0xfc6b68dbb9d9df20!2z0JvQtdC90LjQvdCz0YDQsNC00YHQutC-0LUg0YguLCAxNiwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEyNTE3MQ!5e0!3m2!1sru!2sua!4v1447580878485" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-			</div>
-			<div id="bx_auth_popup_callback" style="display:none;" class="bx_login_popup_form">
-				callback
-			</div>
-
-			<?/*if ($curPage != SITE_DIR."index.php"):?>
-			<div class="row">
-				<div class="col-lg-12">
-					<?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
-							"NUM_CATEGORIES" => "1",
-							"TOP_COUNT" => "5",
-							"CHECK_DATES" => "N",
-							"SHOW_OTHERS" => "N",
-							"PAGE" => SITE_DIR."catalog/",
-							"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS") ,
-							"CATEGORY_0" => array(
-								0 => "iblock_catalog",
-							),
-							"CATEGORY_0_iblock_catalog" => array(
-								0 => "all",
-							),
-							"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
-							"SHOW_INPUT" => "Y",
-							"INPUT_ID" => "title-search-input",
-							"CONTAINER_ID" => "search",
-							"PRICE_CODE" => array(
-								0 => "BASE",
-							),
-							"SHOW_PREVIEW" => "Y",
-							"PREVIEW_WIDTH" => "75",
-							"PREVIEW_HEIGHT" => "75",
-							"CONVERT_CURRENCY" => "Y"
-						),
-						false
-					);?>
-				</div>
-			</div>
-			<?endif*/?>
-
 		</div>
 	</header>
 

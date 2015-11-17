@@ -103,12 +103,61 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 
 		</div>
 	</header>
-
+	<div class="banner_block">
+		<?$APPLICATION->IncludeComponent(
+				"own:owlslider",
+				"",
+				Array(
+						"AUTO_HEIGHT" => "Y",
+						"AUTO_PLAY" => "Y",
+						"AUTO_PLAY_SPEED" => "5000",
+						"CACHE_TIME" => "3600",
+						"CACHE_TYPE" => "A",
+						"COMPONENT_TEMPLATE" => ".default",
+						"COMPOSITE" => "Y",
+						"COUNT" => "3",
+						"DISABLE_LINK_DEV" => "N",
+						"DRAG_BEFORE_ANIM_FINISH" => "Y",
+						"ENABLE_JQUERY" => "N",
+						"ENABLE_OWL_CSS_AND_JS" => "Y",
+						"HEIGHT_RESIZE" => "500",
+						"IBLOCK_ID" => "8",
+						"IBLOCK_TYPE" => "banner",
+						"IMAGE_CENTER" => "Y",
+						"INCLUDE_SUBSECTIONS" => "Y",
+						"IS_PROPORTIONAL" => "Y",
+						"ITEMS_SCALE_UP" => "N",
+						"LINK_URL_PROPERTY_ID" => "0",
+						"MAIN_TYPE" => "iblock",
+						"MOUSE_DRAG" => "Y",
+						"NAVIGATION" => "Y",
+						"NAVIGATION_TYPE" => "arrows",
+						"PAGINATION" => "Y",
+						"PAGINATION_NUMBERS" => "N",
+						"PAGINATION_SPEED" => "800",
+						"RANDOM" => "N",
+						"RANDOM_TRANSITION" => "N",
+						"RESPONSIVE" => "Y",
+						"REWIND_SPEED" => "1000",
+						"SCROLL_COUNT" => "1",
+						"SECTION_ID" => "0",
+						"SHOW_DESCRIPTION_BLOCK" => "N",
+						"SLIDE_SPEED" => "200",
+						"SORT_DIR_1" => "asc",
+						"SORT_DIR_2" => "asc",
+						"SORT_FIELD_1" => "id",
+						"SORT_FIELD_2" => "",
+						"SPECIAL_CODE" => "unic",
+						"STOP_ON_HOVER" => "Y",
+						"TEXT_PROPERTY_ID" => "0",
+						"TOUCH_DRAG" => "Y",
+						"TRANSITION_TYPE_FOR_ONE_ITEM" => "default",
+						"WIDTH_RESIZE" => ""
+				)
+		);?>
+	</div>
 	<div class="workarea">
 		<div class="container bx-content-seection">
-			<p style="text-align: center;">
-				<img alt="ГАРМОНИЯ-_index.png" src="/upload/medialibrary/be4/be477fef5ef6a3b7aac54a75befc2ebf.png" title="ГАРМОНИЯ-_index.png" align="middle">
-			</p>
 			<?if ($curPage != SITE_DIR."index.php"):?>
 				<div class="row">
 					<div class="col-lg-12" id="navigation">

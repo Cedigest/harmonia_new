@@ -135,6 +135,9 @@
 			);?>
 		</div>
 	</div> <!-- //bx-wrapper -->
+<div id="bx_auth_popup_map" style="display:none;" class="bx_login_popup_form">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2241.2154428352846!2d37.494740166103476!3d55.82421974394881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54822d4d18479%3A0xfc6b68dbb9d9df20!2z0JvQtdC90LjQvdCz0YDQsNC00YHQutC-0LUg0YguLCAxNiwg0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8sIDEyNTE3MQ!5e0!3m2!1sru!2sua!4v1447580878485" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
 <div id="bx_auth_popup_callback" style="display:none;" class="bx_login_popup_form">
 	<?$APPLICATION->IncludeComponent(
 			"own:ext.feedback.form",

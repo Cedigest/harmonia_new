@@ -77,62 +77,28 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 			<div class="row">
 				<div class="col-md-12 hidden-xs">
 					<?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"horizontal", 
-	array(
-		"ROOT_MENU_TYPE" => "top",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "36000000",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_THEME" => "black",
-		"CACHE_SELECTED_ITEMS" => "N",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"MAX_LEVEL" => "1",
-		"CHILD_MENU_TYPE" => "left",
-		"USE_EXT" => "Y",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N",
-		"COMPONENT_TEMPLATE" => "horizontal"
-	),
-	false
-);?>
-				</div>
-			</div>
-			<?/*if ($curPage != SITE_DIR."index.php"):?>
-			<div class="row">
-				<div class="col-lg-12">
-					<?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
-							"NUM_CATEGORIES" => "1",
-							"TOP_COUNT" => "5",
-							"CHECK_DATES" => "N",
-							"SHOW_OTHERS" => "N",
-							"PAGE" => SITE_DIR."catalog/",
-							"CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS") ,
-							"CATEGORY_0" => array(
-								0 => "iblock_catalog",
+						"bitrix:menu",
+						"horizontal",
+						array(
+							"ROOT_MENU_TYPE" => "top",
+							"MENU_CACHE_TYPE" => "A",
+							"MENU_CACHE_TIME" => "36000000",
+							"MENU_CACHE_USE_GROUPS" => "Y",
+							"MENU_THEME" => "black",
+							"CACHE_SELECTED_ITEMS" => "N",
+							"MENU_CACHE_GET_VARS" => array(
 							),
-							"CATEGORY_0_iblock_catalog" => array(
-								0 => "all",
-							),
-							"CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
-							"SHOW_INPUT" => "Y",
-							"INPUT_ID" => "title-search-input",
-							"CONTAINER_ID" => "search",
-							"PRICE_CODE" => array(
-								0 => "BASE",
-							),
-							"SHOW_PREVIEW" => "Y",
-							"PREVIEW_WIDTH" => "75",
-							"PREVIEW_HEIGHT" => "75",
-							"CONVERT_CURRENCY" => "Y"
+							"MAX_LEVEL" => "1",
+							"CHILD_MENU_TYPE" => "left",
+							"USE_EXT" => "Y",
+							"DELAY" => "N",
+							"ALLOW_MULTI_SELECT" => "N",
+							"COMPONENT_TEMPLATE" => "horizontal"
 						),
 						false
 					);?>
 				</div>
 			</div>
-			<?endif*/?>
-
 			<?if ($curPage != SITE_DIR."index.php"):?>
 			<div class="row">
 				<div class="col-lg-12" id="navigation">
@@ -150,7 +116,59 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 			<?endif?>
 		</div>
 	</header>
-
+	<div class="banner_block">
+		<?$APPLICATION->IncludeComponent(
+				"own:owlslider",
+				"",
+				Array(
+						"AUTO_HEIGHT" => "Y",
+						"AUTO_PLAY" => "Y",
+						"AUTO_PLAY_SPEED" => "5000",
+						"CACHE_TIME" => "3600",
+						"CACHE_TYPE" => "A",
+						"COMPONENT_TEMPLATE" => ".default",
+						"COMPOSITE" => "Y",
+						"COUNT" => "3",
+						"DISABLE_LINK_DEV" => "N",
+						"DRAG_BEFORE_ANIM_FINISH" => "Y",
+						"ENABLE_JQUERY" => "N",
+						"ENABLE_OWL_CSS_AND_JS" => "Y",
+						"HEIGHT_RESIZE" => "500",
+						"IBLOCK_ID" => "8",
+						"IBLOCK_TYPE" => "banner",
+						"IMAGE_CENTER" => "Y",
+						"INCLUDE_SUBSECTIONS" => "Y",
+						"IS_PROPORTIONAL" => "Y",
+						"ITEMS_SCALE_UP" => "N",
+						"LINK_URL_PROPERTY_ID" => "0",
+						"MAIN_TYPE" => "iblock",
+						"MOUSE_DRAG" => "Y",
+						"NAVIGATION" => "Y",
+						"NAVIGATION_TYPE" => "arrows",
+						"PAGINATION" => "Y",
+						"PAGINATION_NUMBERS" => "N",
+						"PAGINATION_SPEED" => "800",
+						"RANDOM" => "N",
+						"RANDOM_TRANSITION" => "N",
+						"RESPONSIVE" => "Y",
+						"REWIND_SPEED" => "1000",
+						"SCROLL_COUNT" => "1",
+						"SECTION_ID" => "0",
+						"SHOW_DESCRIPTION_BLOCK" => "N",
+						"SLIDE_SPEED" => "200",
+						"SORT_DIR_1" => "asc",
+						"SORT_DIR_2" => "asc",
+						"SORT_FIELD_1" => "id",
+						"SORT_FIELD_2" => "",
+						"SPECIAL_CODE" => "unic",
+						"STOP_ON_HOVER" => "Y",
+						"TEXT_PROPERTY_ID" => "0",
+						"TOUCH_DRAG" => "Y",
+						"TRANSITION_TYPE_FOR_ONE_ITEM" => "default",
+						"WIDTH_RESIZE" => ""
+				)
+		);?>
+	</div>
 	<div class="workarea">
 		<div class="container bx-content-seection">
 			<div class="row">

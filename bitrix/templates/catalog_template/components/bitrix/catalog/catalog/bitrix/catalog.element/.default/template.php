@@ -92,6 +92,9 @@ if ('Y' == $arParams['DISPLAY_NAME'])
 reset($arResult['MORE_PHOTO']);
 $arFirstPhoto = current($arResult['MORE_PHOTO']);
 ?>
+<h1 class="name_of_item">
+	<?=$arResult["NAME"]?>
+</h1>
 	<div class="bx_item_container">
 		<div class="bx_lt">
 <div class="bx_item_slider" id="<? echo $arItemIDs['BIG_SLIDER_ID']; ?>">
@@ -269,34 +272,15 @@ if ($useBrands || $useVoteRating)
 }
 unset($useVoteRating, $useBrands);
 ?>
-<div class="item_price">
-<?
-$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
-$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']);
-if ($arParams['SHOW_OLD_PRICE'] == 'Y')
-{
-?>
-	<div class="item_old_price" id="<? echo $arItemIDs['OLD_PRICE']; ?>" style="display: <? echo($boolDiscountShow ? '' : 'none'); ?>"><? echo($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></div>
-<?
-}
-?>
-	<div class="item_current_price" id="<? echo $arItemIDs['PRICE']; ?>"><? echo $minPrice['PRINT_DISCOUNT_VALUE']; ?></div>
-<?
-if ($arParams['SHOW_OLD_PRICE'] == 'Y')
-{
-	?>
-	<div class="item_economy_price" id="<? echo $arItemIDs['DISCOUNT_PRICE']; ?>" style="display: <? echo($boolDiscountShow ? '' : 'none'); ?>"><? echo($boolDiscountShow ? GetMessage('CT_BCE_CATALOG_ECONOMY_INFO', array('#ECONOMY#' => $minPrice['PRINT_DISCOUNT_DIFF'])) : ''); ?></div>
-<?
-}
-?>
-</div>
 <?
 unset($minPrice);
 if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS'])
 {
 ?>
+
+	<!-- props -->
 <div class="item_info_section">
-<?
+<?/*
 	if (!empty($arResult['DISPLAY_PROPERTIES']))
 	{
 ?>
@@ -305,12 +289,12 @@ if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS'])
 		foreach ($arResult['DISPLAY_PROPERTIES'] as &$arOneProp)
 		{
 ?>
-		<dt><? echo $arOneProp['NAME']; ?></dt><dd><?
+		<span class="prop_title"><? echo $arOneProp['NAME']; ?>: </span><?
 			echo (
 				is_array($arOneProp['DISPLAY_VALUE'])
 				? implode(' / ', $arOneProp['DISPLAY_VALUE'])
 				: $arOneProp['DISPLAY_VALUE']
-			); ?></dd><?
+			); ?><?
 		}
 		unset($arOneProp);
 ?>
@@ -323,7 +307,34 @@ if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS'])
 	<dl id="<? echo $arItemIDs['DISPLAY_PROP_DIV'] ?>" style="display: none;"></dl>
 <?
 	}
-?>
+*/?>
+	<span class="prop_title">Артикул: </span><?=$arResult["DISPLAY_PROPERTIES"]["ARTNUMBER"]["VALUE"]?>
+
+</div>
+	<!-- props -->
+	<div class="item_info_section">
+	<div class="item_price">
+	<span class="prop_title">Цена: </span><br>
+		<?
+		$minPrice = (isset($arResult['RATIO_PRICE']) ? $arResult['RATIO_PRICE'] : $arResult['MIN_PRICE']);
+		$boolDiscountShow = (0 < $minPrice['DISCOUNT_DIFF']);
+		if ($arParams['SHOW_OLD_PRICE'] == 'Y')
+		{
+			?>
+			<div class="item_old_price" id="<? echo $arItemIDs['OLD_PRICE']; ?>" style="display: <? echo($boolDiscountShow ? '' : 'none'); ?>"><? echo($boolDiscountShow ? $minPrice['PRINT_VALUE'] : ''); ?></div>
+			<?
+		}
+		?>
+		<div class="item_current_price" id="<? echo $arItemIDs['PRICE']; ?>"><? echo $minPrice['PRINT_DISCOUNT_VALUE']; ?></div>
+		<?
+		if ($arParams['SHOW_OLD_PRICE'] == 'Y')
+		{
+			?>
+			<div class="item_economy_price" id="<? echo $arItemIDs['DISCOUNT_PRICE']; ?>" style="display: <? echo($boolDiscountShow ? '' : 'none'); ?>"><? echo($boolDiscountShow ? GetMessage('CT_BCE_CATALOG_ECONOMY_INFO', array('#ECONOMY#' => $minPrice['PRINT_DISCOUNT_DIFF'])) : ''); ?></div>
+			<?
+		}
+		?>
+	</div>
 </div>
 <?
 }
@@ -376,7 +387,7 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']) && !empty($arResul
 			}
 ?>
 	<div class="<? echo $strClass; ?>" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_cont">
-		<span class="bx_item_section_name_gray"><? echo htmlspecialcharsex($arProp['NAME']); ?></span>
+		<!--<span class="bx_item_section_name_gray"><? echo htmlspecialcharsex($arProp['NAME']); ?></span>-->
 		<div class="bx_size_scroller_container"><div class="bx_size">
 			<ul id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_list" style="width: <? echo $strWidth; ?>;margin-left:0%;">
 <?
@@ -415,7 +426,7 @@ if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']) && !empty($arResul
 			}
 ?>
 	<div class="<? echo $strClass; ?>" id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_cont">
-		<span class="bx_item_section_name_gray"><? echo htmlspecialcharsex($arProp['NAME']); ?></span>
+		<!--<span class="bx_item_section_name_gray"><? echo htmlspecialcharsex($arProp['NAME']); ?></span>-->
 		<div class="bx_scu_scroller_container"><div class="bx_scu">
 			<ul id="<? echo $arItemIDs['PROP'].$arProp['ID']; ?>_list" style="width: <? echo $strWidth; ?>;margin-left:0%;">
 <?
@@ -472,37 +483,52 @@ if ($arParams['USE_PRODUCT_QUANTITY'] == 'Y')
 			'#MEASURE#' => (isset($arResult['CATALOG_MEASURE_NAME']) ? $arResult['CATALOG_MEASURE_NAME'] : '')
 		);
 ?>
-		<p id="<? echo $arItemIDs['BASIS_PRICE']; ?>" class="item_section_name_gray"><? echo GetMessage('CT_BCE_CATALOG_MESS_BASIS_PRICE', $basisPriceInfo); ?></p>
+		<!--<p id="<? echo $arItemIDs['BASIS_PRICE']; ?>" class="item_section_name_gray"><? echo GetMessage('CT_BCE_CATALOG_MESS_BASIS_PRICE', $basisPriceInfo); ?></p>-->
 <?
 	}
 ?>
-	<span class="item_section_name_gray"><? echo GetMessage('CATALOG_QUANTITY'); ?></span>
+	<!--<span class="item_section_name_gray"><? echo GetMessage('CATALOG_QUANTITY'); ?></span>-->
+	<span class="prop_title">Количество:</span>
 	<div class="item_buttons vam">
-		<span class="item_buttons_counter_block">
-			<a href="javascript:void(0)" class="bx_bt_button_type_2 bx_small bx_fwb" id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>">-</a>
+		<span class="item_buttons_counter_block" style="float: left;">
+			<a href="javascript:void(0)" class="bx_bt_button_type_2 bx_small bx_fwb minus" id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>">-</a>
 			<input id="<? echo $arItemIDs['QUANTITY']; ?>" type="text" class="tac transparent_input" value="<? echo (isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])
 					? 1
 					: $arResult['CATALOG_MEASURE_RATIO']
 				); ?>">
-			<a href="javascript:void(0)" class="bx_bt_button_type_2 bx_small bx_fwb" id="<? echo $arItemIDs['QUANTITY_UP']; ?>">+</a>
+			<a href="javascript:void(0)" class="bx_bt_button_type_2 bx_small bx_fwb plus" id="<? echo $arItemIDs['QUANTITY_UP']; ?>">+</a>
 			<span class="bx_cnt_desc" id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>"><? echo (isset($arResult['CATALOG_MEASURE_NAME']) ? $arResult['CATALOG_MEASURE_NAME'] : ''); ?></span>
 		</span>
-		<span class="item_buttons_counter_block" id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" style="display: <? echo ($canBuy ? '' : 'none'); ?>;">
+		<span class="item_buttons_counter_block" style="float: right;" id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" style="display: <? echo ($canBuy ? '' : 'none'); ?>;">
 <?
 	if ($showBuyBtn)
 	{
 ?>
-			<a href="javascript:void(0);" class="bx_big bx_bt_button bx_cart" id="<? echo $arItemIDs['BUY_LINK']; ?>"><span></span><? echo $buyBtnMessage; ?></a>
+			<a href="javascript:void(0);" class="bx_big bx_bt_button bx_cart" id="<? echo $arItemIDs['BUY_LINK']; ?>"><? echo $buyBtnMessage; ?></a>
 <?
 	}
 	if ($showAddBtn)
 	{
 ?>
-			<a href="javascript:void(0);" class="bx_big bx_bt_button bx_cart" id="<? echo $arItemIDs['ADD_BASKET_LINK']; ?>"><span></span><? echo $addToBasketBtnMessage; ?></a>
+			<a href="javascript:void(0);" class="bx_big bx_bt_button bx_cart" id="<? echo $arItemIDs['ADD_BASKET_LINK']; ?>"><? echo $addToBasketBtnMessage; ?></a>
 <?
 	}
 ?>
 		</span>
+		<div class="questions_answers">
+			<?$APPLICATION->IncludeComponent(
+					"bitrix:main.include",
+					".default",
+					array(
+							"COMPONENT_TEMPLATE" => ".default",
+							"AREA_FILE_SHOW" => "file",
+							"AREA_FILE_SUFFIX" => "inc",
+							"EDIT_TEMPLATE" => "",
+							"PATH" => "/cat_detail.php"
+					),
+					false
+			);?>
+		</div>
 		<span id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_notavailable" style="display: <? echo (!$canBuy ? '' : 'none'); ?>;"><? echo $notAvailableMessage; ?></span>
 <?
 	if ($arParams['DISPLAY_COMPARE'] || $showSubscribeBtn)
@@ -593,6 +619,10 @@ else
 }
 unset($showAddBtn, $showBuyBtn);
 ?>
+	<span class="description_title">ОПИСАНИЕ: </span>
+	<span class="description_text">
+		<?=$arResult["DISPLAY_PROPERTIES"]["DESCRIPTION"]["VALUE"]["TEXT"]?>
+	</span>
 </div>
 			<div class="clb"></div>
 		</div>

@@ -622,16 +622,19 @@ img {
 
 /***************************** end own ***************************** */
 
-
 @media (max-width: 767px) {
 	.bx-logo {
-		background: #1484ce;
+		background: #1E892F;
 		position: fixed;
 		left: 0;
 		right: 0;
 		top: 0;
 		z-index: 1400;
 		padding: 10px 60px;
+		height: 50px;
+	}
+	.green_line_ins {
+		margin-top: 40px;
 	}
 	.bx-logo .bx-logo-block {
 		text-align: center;
@@ -654,6 +657,21 @@ img {
 	.bx-logo-desc {
 		display: none;
 	}
+	.copyright, .social_block {
+		display: block;
+		align-items: inherit;
+	}
+	.fb,.od,.vk{
+		display: inline-block;
+	}
+	.top_table {
+		width: 100%;
+	}
+}
+
+
+.bx-inc-orginfo {
+	padding-left: 0px;
 }
 /* Sections */
 
@@ -716,9 +734,6 @@ img {
 }
 /* header / phone */
 
-.bx-inc-orginfo {
-	padding-left: 28px;
-}
 
 @media (max-width: 767px) {
 	.bx-inc-orginfo {
